@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Pagination from "../components/Pagination"; // Assuming you have a Pagination component
+import { ImageResponse } from "next/server";
 
 // Fetch data with pagination support
 async function getData(page: number, limit: number) {
@@ -76,7 +77,7 @@ export default function ProductList() {
                 </Badge>
               )}
               <Link href={`/detail/${product._id}`}>
-                <img
+                <Image
                   src={product.imageUrl}
                   alt={product.title}
                   height={400}

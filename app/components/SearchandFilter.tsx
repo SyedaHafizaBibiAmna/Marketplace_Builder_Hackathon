@@ -4,6 +4,7 @@ import { simplifiedProduct } from "@/sanity/interface";
 import { Badge, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import Pagination from "./Pagination"; // Import the Pagination component
+import Image from "next/image";
 
 export default function ProductList({
   initialData,
@@ -118,7 +119,7 @@ export default function ProductList({
                 </Badge>
               )}
               <Link href={`/detail/${product._id}`}>
-                <img
+                <Image
                   src={product.imageUrl}
                   alt={product.title}
                   height={400}

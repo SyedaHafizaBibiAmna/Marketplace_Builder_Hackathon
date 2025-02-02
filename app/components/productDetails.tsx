@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { fullProduct } from "@/sanity/interface";
 import { client } from "@/sanity/lib/client";
 import { Star, Truck } from "lucide-react";
+import Image from "next/image";
 
 async function getData() {
   const query = `*[_type == "product"][5] {
@@ -34,7 +35,7 @@ export default async function ProductPge() {
     <div className="bg-white reveal-on-scroll">
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2 reveal-on-scroll">
-        <img
+        <Image
                   src={data.imageUrl}
                   alt={data.title}
                   height={400}

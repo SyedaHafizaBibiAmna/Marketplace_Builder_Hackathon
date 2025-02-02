@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { simplifiedProduct } from "@/sanity/interface"
+import Image from "next/image";
 
 
 async function getData() {
@@ -35,7 +36,7 @@ export default async function CategoryPage() {
               className="group relative overflow-hidden rounded-lg"
             >
               <div className="aspect-[4/3] w-full">
-                <img
+                <Image
                   src={product.imageUrl}
                   alt={product.title}
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
