@@ -63,7 +63,8 @@ export default function Testimonials() {
                   <div className="flex flex-col items-center text-center">
                     <p className="text-gray-700">
                       <i className="bi bi-quote quote-icon-left text-lg"></i>
-                      <span className="italic">"{testimonial.text}"</span>
+                      <span className="italic">{testimonial.text.replace(/"/g, '&quot;')}</span>
+
                       <i className="bi bi-quote quote-icon-right text-lg"></i>
                     </p>
                     <h3 className="mt-4 font-semibold">{testimonial.name}</h3>

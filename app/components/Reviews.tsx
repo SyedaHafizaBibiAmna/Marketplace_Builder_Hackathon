@@ -17,7 +17,7 @@ interface ReviewsProps {
   initialReviews?: Review[];
 }
 
-export default function Reviews({ productId, initialReviews = [] }: ReviewsProps) {
+export default function Reviews({  initialReviews = [] }: ReviewsProps) {
   const [reviews, setReviews] = useState<Review[]>(initialReviews);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');

@@ -14,7 +14,7 @@ async function getData() {
 
 export default async function Hero() {
   const data = await getData();
-  console.log(data)
+  // console.log(data)
   return (
     <section className="mx-auto max-w-2xl px-4 sm:pb-6 lg:max-w-7xl lg:px-8 ">
       <div className="mb-8 flex flex-wrap justify-between md:mb-16 reveal-on-scroll">

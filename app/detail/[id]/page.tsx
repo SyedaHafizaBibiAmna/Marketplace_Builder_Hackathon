@@ -30,7 +30,7 @@ async function getData(id: string) {
 export const dynamic = "force-dynamic";
 
 export default async function ProductPge({ params }: { params: { id: string } }) {
-  console.log("Dynamic Route Params:", params);
+  // console.log("Dynamic Route Params:", params);
   const { id } = params;
 
   if (!id) {
