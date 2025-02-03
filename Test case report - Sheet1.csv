@@ -1,0 +1,8 @@
+Test Case ID,Test Case Description,Test Steps,Expected Result,Actual Result,Status,Severity Level,Assigned To,Remarks
+1,TC001,product listing page,Open product page > Verify products,Products displayed correctly,Products displayed correctly,Passed,High,No issues found
+2,TC002,Test API error handling,Disconnect API > Refresh page,Show fallback UI with error message,Error message shown,Passed,Medium,Handled gracefully
+3,TC003,Check cart functionality,Add product to cart > Verify cart contents,Cart updates with added product,Cart updates as expected,Passed,High,No issues found
+4,TC004,Ensure responsiveness on mobile,Resize browser window > Check layout,Layout adjusts properly to screen size,Responsive layout working as intended,Passed,Medium,Test successful
+5,TC005,Dynamic Routing,Very Dynamic Routing,Correct Product Details,Dynamic Routing Works,Passed,High,No issues found
+6,TC006,performance optimization,optimize performance,performance is improved,improved load time,passed,medium,performance optimize
+7,TC007,cross browser testing,testing on different device,website functions on all devices,compatible on all devices,passed,medium,responsiveness 
