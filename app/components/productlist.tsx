@@ -1,61 +1,23 @@
 "use client";
 import { simplifiedProduct } from "@/sanity/interface";
-import { client } from "@/sanity/lib/client";
 import { Badge, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import Pagination from "../components/Pagination"; // Assuming you have a Pagination component
 
-
-// Fetch data with pagination support
-async function getData(page: number, limit: number) {
-  const skip = (page - 1) * limit; // Calculate the skip based on the current page
-  const query = `*[_type == "product"] [${skip}...${skip + limit}] | order(_createdAt desc) {
-    _id,
-    title,
-    price,
-    "categoryName": category->name,
-    "imageUrl": image.asset->url,
-    description,
-    badge,
-    priceWithoutDiscount,
-    "tags": tags[]
-  }`;
-
-  const data = await client.fetch(query);
-  return data;
+interface ProductsPageProps {
+  initialData: simplifiedProduct[];
+  totalPages: number;
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
 }
 
-// Fetch total product count for pagination
-async function getTotalProducts() {
-  const query = `count(*[_type == "product"])`;
-  const count = await client.fetch(query);
-  return count;
-}
-
-export default function ProductList() {
-  const [data, setData] = useState<simplifiedProduct[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const itemsPerPage = 12; // Set the number of products per page
-
-  // Fetch products and total pages
-  useEffect(() => {
-    const fetchData = async () => {
-      const totalCount = await getTotalProducts();
-      setTotalPages(Math.ceil(totalCount / itemsPerPage));
-      const products = await getData(currentPage, itemsPerPage);
-      setData(products);
-    };
-    fetchData();
-  }, [currentPage]);
-
-  // Handle page change
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
+export default function ProductsPage({
+  initialData,
+  totalPages,
+  currentPage,
+  setCurrentPage,
+}: ProductsPageProps) {
   return (
     <div className="container mx-auto px-4 py-20 reveal-on-scroll">
       <h1 className="text-3xl text-start font-semibold text-[#1C1B1F] tracking-tight mb-8">
@@ -63,7 +25,7 @@ export default function ProductList() {
       </h1>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {data.map((product) => (
+        {initialData.map((product) => (
           <div key={product._id} className="group relative rounded-lg bg-white">
             <div className="relative aspect-square overflow-hidden rounded-lg">
               {product.badge && (
@@ -78,8 +40,8 @@ export default function ProductList() {
               )}
               <Link href={`/detail/${product._id}`}>
                 <Image
-                 src={product.imageUrl || "/images/1.jpg"}
-                 alt={product.title || "Product Image"}
+                  src={product.imageUrl || "/images/1.jpg"}
+                  alt={product.title || "Product Image"}
                   height={400}
                   width={400}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -113,7 +75,7 @@ export default function ProductList() {
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={handlePageChange}
+        onPageChange={setCurrentPage} // Pass the setCurrentPage function
       />
     </div>
   );
