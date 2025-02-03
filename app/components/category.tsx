@@ -37,8 +37,8 @@ export default async function CategoryPage() {
             >
               <div className="aspect-[4/3] w-full">
                 <Image
-                  src={product.imageUrl}
-                  alt={product.title}
+                  src={product.imageUrl || "/images/1.jpg"}
+                  alt={product.title || "Product Image"}
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   // priority
                   width={400}

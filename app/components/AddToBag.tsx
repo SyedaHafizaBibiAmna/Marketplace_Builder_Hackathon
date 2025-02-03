@@ -5,23 +5,6 @@ import { Button } from "@/components/ui/button";
 
 import { useShoppingCart } from "use-shopping-cart";
 
-// async function getData() {
-//   const query = `*[_type == "product"][8..15] | order(_createdAt desc) {
-//   _id,
-//   title,
-//   price,
-//   "categoryName": category->name,
-//   "imageUrl": image.asset->url,
-//   description,
-//   badge,
-//   priceWithoutDiscount,
-//   "tags": tags[]
-
-// }`; const data = await client.fetch(query);
-//   console.log(data);
-
-//   return data;
-// }
 
 export interface ProductCart {
   name: string;

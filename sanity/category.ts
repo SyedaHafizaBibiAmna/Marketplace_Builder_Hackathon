@@ -1,25 +1,4 @@
-// export default{
-//     name: 'category',
-//     title: 'Category',
-//     type: 'document',
-//     fields: [
-//         {
-//             name: 'title',
-//             title: 'Name of Category',
-//             type: 'string',
-//         },
-//         {
-//             name: 'image',
-//             title: 'Category Image',
-//             type: 'image',
-//         },
-//         {
-//             title: 'Number of Products',
-//             name: 'products',
-//             type: 'number',
-//         }
-//     ],
-// }
+
 import { defineType } from "sanity";
 
 export const categorySchema = defineType({

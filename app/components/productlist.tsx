@@ -78,8 +78,8 @@ export default function ProductList() {
               )}
               <Link href={`/detail/${product._id}`}>
                 <Image
-                  src={product.imageUrl}
-                  alt={product.title}
+                 src={product.imageUrl || "/images/1.jpg"}
+                 alt={product.title || "Product Image"}
                   height={400}
                   width={400}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

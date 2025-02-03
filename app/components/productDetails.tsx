@@ -36,8 +36,8 @@ export default async function ProductPge() {
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2 reveal-on-scroll">
         <Image
-                  src={data.imageUrl}
-                  alt={data.title}
+                   src={data.imageUrl || "/images/1.jpg"}
+                   alt={data.title || "Product Image"}
                   height={400}
                   width={400}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
