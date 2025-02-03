@@ -29,9 +29,11 @@ async function getData(id: string) {
 
 export const dynamic = "force-dynamic";
 
-export default async function ProductPge({ params }: { params: { id: string } }) {
+export default async function ProductPge({ params }: { params:Promise <{ id: string }> }) {
   // console.log("Dynamic Route Params:", params);
-  const { id } = params;
+  const resolvedParams = await params;
+  const { id } = resolvedParams;
+  // const { id } = params;
 
   if (!id) {
     return <div>Error: Product ID is missing in the URL!</div>;
